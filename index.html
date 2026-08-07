@@ -1,3 +1,697 @@
+<<<<<<< HEAD
+
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PORTOFOLIO - Al Rizqy Muhammad Yunus</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1a0000 0%, #3d0000 50%, #2a0000 100%);
+      color: #f1f1f1;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Animasi Fade In */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 5px rgba(255, 100, 100, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(255, 100, 100, 0.6);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -1000px 0;
+      }
+      100% {
+        background-position: 1000px 0;
+      }
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes gradient-shift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes particles {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(var(--tx), var(--ty)) scale(0);
+        opacity: 0;
+      }
+    }
+
+    /* Background Particles */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(2px 2px at 20px 30px, #ff6464, rgba(255, 100, 100, 0)),
+        radial-gradient(2px 2px at 60px 70px, #ff8c8c, rgba(255, 140, 140, 0)),
+        radial-gradient(1px 1px at 50px 50px, #ff9999, rgba(255, 153, 153, 0)),
+        radial-gradient(1px 1px at 130px 80px, #ff6464, rgba(255, 100, 100, 0)),
+        radial-gradient(2px 2px at 90px 10px, #ff8c8c, rgba(255, 140, 140, 0));
+      background-size: 200px 200px;
+      background-repeat: repeat;
+      pointer-events: none;
+      animation: float 20s infinite linear;
+      opacity: 0.05;
+      z-index: 0;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(18, 18, 18, 0.98) 0%, rgba(18, 18, 18, 0.9) 100%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      z-index: 1000;
+      border-bottom: 2px solid rgba(255, 100, 100, 0.3);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+      animation: slideIn 0.6s ease-out;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      letter-spacing: 3px;
+      color: #fff;
+      background: linear-gradient(45deg, #ff6464, #ff8c8c, #ff6464);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradient-shift 3s ease infinite, glow 3s ease-in-out infinite;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin-left: 30px;
+    }
+
+    .nav-links a {
+      color: #aaa;
+      text-decoration: none;
+      transition: 0.4s ease;
+      position: relative;
+      padding-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #ff6464, #ff8c8c);
+      transition: width 0.4s ease;
+      box-shadow: 0 0 10px rgba(255, 100, 100, 0.5);
+    }
+
+    .nav-links a::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 100, 100, 0.2);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      transition: width 0.4s ease, height 0.4s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ff8c8c;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover::before {
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 8% 60px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    /* Hero / Cover */
+    #cover {
+      text-align: center;
+      align-items: center;
+      background: radial-gradient(circle at center, rgba(255, 100, 100, 0.1) 0%, transparent 70%);
+      position: relative;
+      z-index: 1;
+    }
+
+    #cover h1 {
+      font-size: 3.5rem;
+      margin-top: 20px;
+      background: linear-gradient(135deg, #ff6464, #ff9999, #ff6464);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 0.8s ease-out 0.2s backwards, gradient-shift 4s ease infinite;
+      letter-spacing: 2px;
+      text-shadow: 0 0 30px rgba(255, 100, 100, 0.3);
+    }
+
+    #cover p {
+      font-size: 1.2rem;
+      color: #ff8c8c;
+      animation: fadeInUp 0.8s ease-out 0.4s backwards;
+      letter-spacing: 1px;
+    }
+
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 3px solid #ff6464;
+      box-shadow: 0 0 30px rgba(255, 100, 100, 0.4), inset 0 0 20px rgba(255, 100, 100, 0.2);
+      animation: float 3s ease-in-out infinite, fadeInUp 0.8s ease-out backwards, pulse 4s ease-in-out infinite;
+      transition: transform 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .profile-img::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      border-top-color: #ff8c8c;
+      border-right-color: #ff8c8c;
+      animation: rotate 3s linear infinite;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 50px rgba(255, 100, 100, 0.7), inset 0 0 20px rgba(255, 100, 100, 0.3);
+    }
+
+    /* About Section */
+    .about-content {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      background: rgba(30, 30, 30, 0.5);
+      padding: 40px;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 100, 100, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .about-content::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 100, 100, 0.1), transparent 70%);
+      animation: rotate 10s linear infinite;
+    }
+
+    .about-content::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid transparent;
+      border-radius: 15px;
+      background: linear-gradient(45deg, rgba(255, 100, 100, 0.1), transparent) border-box;
+      animation: gradient-shift 3s ease infinite;
+    }
+
+    .about-content p {
+      line-height: 1.8;
+      animation: fadeInUp 0.8s ease-out 0.2s backwards;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Timeline Styling (Education & Experience) */
+    .timeline {
+      margin-top: 20px;
+      border-left: 3px solid;
+      border-image: linear-gradient(180deg, #ff6464, #ff8c8c) 1;
+      padding-left: 30px;
+    }
+
+    .timeline-item {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: linear-gradient(135deg, rgba(30, 30, 30, 0.6), rgba(40, 20, 20, 0.4));
+      border-radius: 10px;
+      border-left: 4px solid #ff6464;
+      box-shadow: 0 4px 15px rgba(255, 100, 100, 0.1), inset 0 1px 0 rgba(255, 100, 100, 0.1);
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      animation: fadeInUp 0.6s ease-out backwards;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, #ff6464, transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 12px;
+      background: #ff6464;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(255, 100, 100, 0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .timeline-item:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .timeline-item:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .timeline-item:hover {
+      background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(50, 20, 20, 0.6));
+      box-shadow: 0 8px 25px rgba(255, 100, 100, 0.3), inset 0 1px 0 rgba(255, 100, 100, 0.2);
+      transform: translateX(10px);
+      border-left-color: #ffb3b3;
+    }
+
+    .timeline-item:hover::before {
+      opacity: 1;
+    }
+
+    .timeline-item:hover::after {
+      opacity: 1;
+    }
+
+    .timeline-title {
+      font-weight: bold;
+      color: #ff8c8c;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .timeline-date {
+      color: #888;
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .gallery-card {
+      background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+      border-radius: 15px;
+      overflow: hidden;
+      border: 2px solid rgba(255, 100, 100, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      animation: fadeInUp 0.6s ease-out backwards;
+      position: relative;
+    }
+
+    .gallery-card:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .gallery-card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .gallery-card:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .gallery-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 100, 100, 0.3), transparent);
+      z-index: 10;
+      transition: left 0.5s ease;
+    }
+
+    .gallery-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, rgba(255, 100, 100, 0.1), transparent 70%);
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-card:hover::before {
+      left: 100%;
+    }
+
+    .gallery-card:hover::after {
+      opacity: 1;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(255, 100, 100, 0.3);
+      border-color: rgba(255, 100, 100, 0.5);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      z-index: 1;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.15) rotate(2deg);
+    }
+
+    .gallery-info {
+      padding: 20px;
+      text-align: center;
+      background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.3));
+      position: relative;
+      z-index: 3;
+    }
+
+    .gallery-info h3 {
+      color: #ff8c8c;
+      font-size: 1.1rem;
+      margin: 0;
+      transition: color 0.3s ease;
+    }
+
+    .gallery-card:hover .gallery-info h3 {
+      color: #ffb3b3;
+      text-shadow: 0 0 10px rgba(255, 100, 100, 0.5);
+    }
+
+    /* Section Titles */
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      letter-spacing: 2px;
+      border-bottom: 3px solid;
+      border-image: linear-gradient(90deg, #ff6464, #ff8c8c) 1;
+      padding-bottom: 10px;
+      display: inline-block;
+      background: linear-gradient(135deg, #ff6464, #ff8c8c, #ff6464);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 0.6s ease-out backwards, gradient-shift 4s ease infinite;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #ff6464, #ff8c8c);
+      animation: shimmer 2s ease infinite;
+    }
+
+    #work > p {
+      animation: fadeInUp 0.6s ease-out 0.1s backwards;
+    }
+
+    footer {
+      text-align: center;
+      padding: 60px 40px;
+      background: linear-gradient(180deg, #0a0a0a, #1a0000);
+      color: #888;
+      border-top: 2px solid rgba(255, 100, 100, 0.2);
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    footer h2 {
+      color: #ff8c8c;
+      margin-bottom: 15px;
+    }
+
+    /* Responsiveness */
+    @media (max-width: 768px) {
+      #cover h1 {
+        font-size: 2rem;
+      }
+
+      .nav-links li {
+        margin-left: 15px;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      .about-content {
+        padding: 25px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">PORTOFOLIO</div>
+    <ul class="nav-links">
+      <li><a href="#cover">Cover</a></li>
+      <li><a href="#about">About Me</a></li>
+     
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#work">My Project</a></li>
+    </ul>
+  </nav>
+
+  <!-- Cover Section -->
+  <section id="cover">
+    <img src="photo.jpeg" alt="Yunus" class="profile-img">
+    <h1>AL RIZQY MUHAMMAD YUNUS</h1>
+    <p style="color: #888;">Fiber Optic Specialist</p>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about">
+    <div class="about-content">
+      <h2>ABOUT ME</h2>
+      <p>Saya Al Rizqy Muhammad Yunus, saya adalah angkatan ke 7 SMK Telkom Sidoarjo dengan jurusan TJAT. Di Sekolah, saya mengikuti ekstrakulikuler futsal Saya memiliki potensi pada bidang teknologi khususnya fiber optik.</p>
+    </div>
+  </section>
+
+ 
+
+  <!-- Work Experience Section -->
+  <section id="experience">
+    <h2>EXPERIENCE</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-title">PRA PKL | CV. ELANG PRATANA (surabaya) </div>
+        <div>Instalasi CCTV dan jaringan FTTH</div>
+        <div class="timeline-date">16 April 2026 - 29 April 2026</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-title">PROJECT DTP (Digital Talent Program)</div>
+        <div>Instalasi Maintance dan trouble shoot FTTH</div>
+        <div class="timeline-date"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- My Work / Gallery Section -->
+  <section id="work">
+    <h2>PROJECT</h2>
+    <p style="margin-bottom: 20px; color: #aaa;">Ini adalah hasil project saya selama menjelajahi dunia Fiber Optic.</p>
+    
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <img src="prapkl.jpeg" alt="Portrait Photography">
+        <div class="gallery-info">
+          <h3>Pra pkl CV Elang Pratana</h3>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="prapkl1.jpeg" alt="Landscape Photography">
+        <div class="gallery-info">
+          <h3>Splicing2</h3>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="portofolio dtp.jpeg" alt="Macro Photography">
+        <div class="gallery-info">
+          <h3>fotoPhotography</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <h2>THANK YOU</h2>
+    <p> </p>
+  </footer>
+
+</body>
+</html>
+=======
 
 
 <!DOCTYPE html>
@@ -674,7 +1368,7 @@
         </div>
       </div>
       <div class="gallery-card">
-        <img src="portofolio dtp.jpeg" alt="Macro Photography">
+        <img src="https://via.placeholder.com/400x300" alt="Macro Photography">
         <div class="gallery-info">
           <h3>Macro Photography</h3>
         </div>
@@ -690,3 +1384,4 @@
 
 </body>
 </html>
+>>>>>>> 568241e0988ef0064de933a60a37e84a86056f9d
