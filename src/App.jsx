@@ -25,7 +25,7 @@ export default function App() {
         <div className="cards">
           <img src="/prapkl.jpeg" alt="project" />
           <img src="/prapkl1.jpeg" alt="project" />
-          <img src="/\"portofolio dtp.jpeg\"" alt="project" />
+          <img src="/portofolio dtp.jpeg" alt="project" />
         </div>
       </section>
 
